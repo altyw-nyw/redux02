@@ -13,11 +13,10 @@ const PostsZustand = () => {
   if (error) return <p>{error}</p>;
 
   return (
-      <ul>
-        {posts.map((post => 
-        <li key={post.id}>{post.title}</li>
-    ))}
-    </ul>
+      <div>
+      <h3>Zustand---"Посты"</h3>
+      <ul>{posts.map(p => <li key={p.id}>{p.title}</li>)}</ul>
+    </div>
   );
 };
 

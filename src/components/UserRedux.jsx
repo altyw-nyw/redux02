@@ -15,12 +15,12 @@ const UsersRedux = () => {
   if (status === "failed") return <p>Ошибка: {error}</p>;
 
   return (
-      <ul>
-        {users.map((user => 
-        <li key={user.id}>{user.name}</li>
-        ))}
-    </ul>
+      <div>
+      <h3>Redux Toolkit---"Пользователи"</h3>
+      <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>
+    </div>
   );
 };
+
 
 export default UsersRedux;

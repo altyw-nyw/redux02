@@ -7,17 +7,22 @@ const fetchComments = async () => {
 };
 
 const CommentsQuery = () => {
-  const { data, isLoading, error } = useQuery(["comments"], fetchComments);
+  const { data, isLoading, error } = useQuery({
+  queryKey: ["comments"],
+  queryFn: fetchComments,
+});
+
 
   if (isLoading) return <p>Загрузка...</p>;
   if (error) return <p>Ошибка: {error.message}</p>;
 
   return (
+ <div>
+      <h3>React Query---"Комментарии"</h3>
       <ul>
-        {data.map(comment => (
-        <li key={comment.id}>{comment.name}</li>
-    ))}
-    </ul>
+        {data.map(c => <li key={c.id}>{c.name}</li>)}
+      </ul>
+    </div>
   );
 };
 
